@@ -11,6 +11,7 @@ import {
 } from "@govtechsg/decentralized-renderer-react-components";
 import { GovtechOpencertsTemplateCertificate } from "../samples";
 import { PrintWatermark } from "./common/PrintWatermark";
+import govtechLogo from "./common/GOVTECH_logo.png";
 
 export const TranscriptTemplate: FunctionComponent<TemplateProps<GovtechOpencertsTemplateCertificate>> = ({
   document,
@@ -185,7 +186,7 @@ export const TranscriptTemplate: FunctionComponent<TemplateProps<GovtechOpencert
                   width: "100%",
                   height: "auto"
                 }}
-                src={require("./common/GOVTECH_logo.png")}
+                src={govtechLogo}
                 alt="Govtech Logo"
               />
             </div>

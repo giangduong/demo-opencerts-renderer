@@ -3,15 +3,12 @@ import { get } from "lodash";
 import { formatDate } from "./common/functions";
 import "bootstrap/dist/css/bootstrap.css";
 import "./common/demoStyles.css";
-import {
-  ObfuscatableValue,
-  SimplePrivacyFilterBanner,
-  TemplateProps
-} from "@govtechsg/decentralized-renderer-react-components";
+import { ObfuscatableValue, TemplateProps } from "@govtechsg/decentralized-renderer-react-components";
 import { GovtechOpencertsTemplateCertificate } from "../samples";
 import { PrintWatermark } from "./common/PrintWatermark";
 import govtechLogo from "./common/GOVTECH_logo.png";
 import transcriptBg from "./common/transcript-background.png";
+import { SimplePrivacyFilterBanner } from "./common/SimplePrivacyFilterBanner";
 
 export const TranscriptTemplate: FunctionComponent<TemplateProps<GovtechOpencertsTemplateCertificate>> = ({
   document,

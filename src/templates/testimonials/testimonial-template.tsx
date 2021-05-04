@@ -39,10 +39,30 @@ const Page = styled.div`
   border: 1px #d3d3d3 solid;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+  @media print {
+    margin: 0 auto;
+  }
 `;
 
 export const TestimonialTemplate: FunctionComponent<TemplateProps<TestimonialCertificate>> = ({ document }) => (
-  <>
+  <div
+    css={css`
+      margin-left: auto;
+      margin-right: auto;
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      @media print {
+        html,
+        body {
+          width: 21cm;
+          height: 29.7cm;
+        }
+      }
+    `}
+  >
     <PrintWatermark />
     <Page>
       <div
@@ -206,5 +226,5 @@ export const TestimonialTemplate: FunctionComponent<TemplateProps<TestimonialCer
         `}
       />
     </Page>
-  </>
+  </div>
 );

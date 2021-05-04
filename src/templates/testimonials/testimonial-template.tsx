@@ -2,9 +2,9 @@ import React, { FunctionComponent } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { TemplateProps } from "@govtechsg/decentralized-renderer-react-components";
 import { PrintWatermark } from "../govtech-demo-cert/common/print-watermark";
-import { TestimonialCertificate } from "../samples/testimonial-sample";
+import { TestimonialCertificate } from "../samples";
 import styled from "@emotion/styled";
-import { css } from "@emotion/core";
+import { css, Global } from "@emotion/core";
 import moeLogo from "./moe-ministry-of-education-singapore.png";
 
 const pageHeight = "29.7cm";
@@ -28,6 +28,11 @@ const Separator = styled.div`
   align-items: center;
   font-size: 0.5rem;
   white-space: nowrap;
+
+  @media print {
+    // for some reason this breaks the size of the page when printing ... :)
+    white-space: normal;
+  }
 `;
 
 const Page = styled.div`
@@ -41,7 +46,8 @@ const Page = styled.div`
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 
   @media print {
-    margin: 0 auto;
+    margin: 3cm auto;
+    page-break-after: always;
   }
 `;
 
@@ -50,20 +56,17 @@ export const TestimonialTemplate: FunctionComponent<TemplateProps<TestimonialCer
     css={css`
       margin-left: auto;
       margin-right: auto;
-      @page {
-        size: A4;
-        margin: 0;
-      }
-      @media print {
-        html,
-        body {
-          width: 21cm;
-          height: 29.7cm;
-        }
-      }
     `}
   >
     <PrintWatermark />
+    <Global
+      styles={css`
+        @page {
+          size: A4;
+          margin: 0;
+        }
+      `}
+    />
     <Page>
       <div
         css={css`
@@ -219,7 +222,7 @@ export const TestimonialTemplate: FunctionComponent<TemplateProps<TestimonialCer
         MINISTRY OF EDUCATION MINISTRY OF EDUCATION MINISTRY OF EDUCATION
       </Separator>
       <div
-        className="header"
+        className="footer"
         css={css`
           background-color: white;
           height: ${footer2Height};

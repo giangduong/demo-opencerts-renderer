@@ -1,5 +1,5 @@
 import React from "react";
-import { SimplePrivacyFilterBanner } from "./SimplePrivacyFilterBanner";
+import { SimplePrivacyFilterBanner } from "./simple-privacy-filter-banner";
 import { render, fireEvent } from "@testing-library/react";
 
 describe("simpleprivacyfilterbanner component", () => {

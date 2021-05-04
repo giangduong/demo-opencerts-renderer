@@ -2,13 +2,13 @@ import React, { FunctionComponent, useState } from "react";
 import { get } from "lodash";
 import { formatDate } from "./common/functions";
 import "bootstrap/dist/css/bootstrap.css";
-import "./common/demoStyles.css";
+import "./common/demo-styles.css";
 import { ObfuscatableValue, TemplateProps } from "@govtechsg/decentralized-renderer-react-components";
 import { GovtechOpencertsTemplateCertificate } from "../samples";
-import { PrintWatermark } from "./common/PrintWatermark";
-import govtechLogo from "./common/GOVTECH_logo.png";
+import { PrintWatermark } from "./common/print-watermark";
+import govtechLogo from "./common/govtech-logo.png";
 import transcriptBg from "./common/transcript-background.png";
-import { SimplePrivacyFilterBanner } from "./common/SimplePrivacyFilterBanner";
+import { SimplePrivacyFilterBanner } from "./common/simple-privacy-filter-banner";
 
 export const TranscriptTemplate: FunctionComponent<TemplateProps<GovtechOpencertsTemplateCertificate>> = ({
   document,

@@ -1,0 +1,21 @@
+import { Meta, Preview, Props, Description, Story } from "@storybook/addon-docs/blocks";
+import { TestimonialTemplate } from "./testimonial-template";
+import { customTestimonialCertificate } from "../samples";
+
+<Meta title="MDX|TestimonialTemplate" component={TestimonialTemplate} />
+
+# TestimonialTemplate component
+
+<Description of={TestimonialTemplate} />
+
+# Props
+
+<Props of={TestimonialTemplate} />
+
+# Usage
+
+<Preview withSource>
+  <Story name="basic sample">
+    <TestimonialTemplate document={customTestimonialCertificate} />
+  </Story>
+</Preview>

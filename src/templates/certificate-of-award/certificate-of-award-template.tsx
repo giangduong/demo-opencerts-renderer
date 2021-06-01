@@ -7,7 +7,6 @@ import styled from "@emotion/styled";
 import { css, Global } from "@emotion/core";
 import moeLogo from "./moe-ministry-of-education-singapore.svg";
 import cccLogo from "./citizens-consultative-committees.png";
-import signature from "./signature.png";
 
 const pageHeight = "29.7cm";
 const header1Height = "3.5cm";
@@ -118,7 +117,7 @@ export const CertificateOfAwardTemplate: FunctionComponent<TemplateProps<Certifi
           good conduct
         </div>
         <div className="signature">
-          <img src={signature} />
+          <img src={document.signature.signature} />
           <div className="text-uppercase">
             {document.signature.name}
             <br />

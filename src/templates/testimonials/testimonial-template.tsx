@@ -1,13 +1,12 @@
 import React, { FunctionComponent } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { TemplateProps } from "@govtechsg/decentralized-renderer-react-components";
-import { PrintWatermark } from "../govtech-demo-cert/common/print-watermark";
 import { TestimonialCertificate } from "../samples";
 import styled from "@emotion/styled";
-import { css, Global } from "@emotion/core";
+import { css } from "@emotion/core";
 import moeLogo from "./moe-ministry-of-education-singapore.png";
+import { Page, PageContainer, pageHeight } from "../../components/page";
 
-const pageHeight = "29.7cm";
 const header1Height = "8cm";
 const footer1Height = "1cm";
 const content1Height = `calc(${pageHeight} - ${header1Height} - ${footer1Height})`;
@@ -35,39 +34,13 @@ const Separator = styled.div`
   }
 `;
 
-const Page = styled.div`
-  background: rgb(255, 255, 255);
+const CustomPage = styled(Page)`
   background: linear-gradient(176deg, rgba(255, 255, 255, 1) 0%, rgba(240, 252, 255, 1) 100%);
-  width: 21cm;
-  min-height: ${pageHeight};
-  margin: 1cm auto;
-  border: 1px #d3d3d3 solid;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-
-  @media print {
-    margin: 3cm auto;
-    page-break-after: always;
-  }
 `;
 
 export const TestimonialTemplate: FunctionComponent<TemplateProps<TestimonialCertificate>> = ({ document }) => (
-  <div
-    css={css`
-      margin-left: auto;
-      margin-right: auto;
-    `}
-  >
-    <PrintWatermark />
-    <Global
-      styles={css`
-        @page {
-          size: A4;
-          margin: 0;
-        }
-      `}
-    />
-    <Page>
+  <PageContainer>
+    <CustomPage>
       <div
         css={css`
           background-color: white;
@@ -160,8 +133,8 @@ export const TestimonialTemplate: FunctionComponent<TemplateProps<TestimonialCer
           background: radial-gradient(circle, rgba(164, 139, 97, 1) 0%, rgba(116, 100, 75, 1) 100%);
         `}
       />
-    </Page>
-    <Page>
+    </CustomPage>
+    <CustomPage>
       <div
         className="header d-flex justify-content-between align-items-end"
         css={css`
@@ -228,6 +201,6 @@ export const TestimonialTemplate: FunctionComponent<TemplateProps<TestimonialCer
           height: ${footer2Height};
         `}
       />
-    </Page>
-  </div>
+    </CustomPage>
+  </PageContainer>
 );

@@ -1,49 +1,18 @@
 import React, { FunctionComponent } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { TemplateProps } from "@govtechsg/decentralized-renderer-react-components";
-import { PrintWatermark } from "../govtech-demo-cert/common/print-watermark";
 import { CertificateOfAward } from "../samples";
-import styled from "@emotion/styled";
-import { css, Global } from "@emotion/core";
+import { css } from "@emotion/core";
 import moeLogo from "./moe-ministry-of-education-singapore.svg";
 import cccLogo from "./citizens-consultative-committees.png";
+import { Page, PageContainer, pageHeight } from "../../components/page";
 
-const pageHeight = "29.7cm";
 const header1Height = "3.5cm";
 const footer1Height = "2cm";
 const content1Height = `calc(${pageHeight} - ${header1Height} - ${footer1Height})`;
 
-const Page = styled.div`
-  background: rgb(255, 255, 255);
-  width: 21cm;
-  min-height: ${pageHeight};
-  margin: 1cm auto;
-  border: 1px #d3d3d3 solid;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-
-  @media print {
-    margin: 3cm auto;
-    page-break-after: always;
-  }
-`;
-
 export const CertificateOfAwardTemplate: FunctionComponent<TemplateProps<CertificateOfAward>> = ({ document }) => (
-  <div
-    css={css`
-      margin-left: auto;
-      margin-right: auto;
-    `}
-  >
-    <PrintWatermark />
-    <Global
-      styles={css`
-        @page {
-          size: A4;
-          margin: 0;
-        }
-      `}
-    />
+  <PageContainer>
     <Page>
       <div
         css={css`
@@ -135,5 +104,5 @@ export const CertificateOfAwardTemplate: FunctionComponent<TemplateProps<Certifi
         ABC123456
       </div>
     </Page>
-  </div>
+  </PageContainer>
 );

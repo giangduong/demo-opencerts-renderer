@@ -22,7 +22,6 @@ const Page = styled("div")<{ certificateBg: string }>`
   border: 10px solid #324353;
 
   .logo-oc {
-    max-width: 100%;
     width: 320px;
     @media (min-width: 1024px) {
       width: 600px;
@@ -30,10 +29,16 @@ const Page = styled("div")<{ certificateBg: string }>`
   }
 
   .logo-gt {
-    max-width: 100%;
     width: 200px;
     @media (min-width: 1024px) {
       width: 300px;
+    }
+  }
+
+  .signature {
+    width: 160px;
+    @media (min-width: 1024px) {
+      width: 230px;
     }
   }
 
@@ -58,6 +63,14 @@ const Page = styled("div")<{ certificateBg: string }>`
     }
   }
 
+  .spacer {
+    margin: 24px;
+
+    @media (min-width: 1024px) {
+      margin: 48px;
+    }
+  }
+
   footer {
     max-width: 960px;
     margin: 0 auto;
@@ -69,14 +82,40 @@ const Page = styled("div")<{ certificateBg: string }>`
   }
 
   @media print {
-    height: 210mm;
+    /* @page {
+      size: A4 landscape;
+    } */
 
     .logo-oc {
-      width: 600px;
+      width: 320px;
     }
 
     .logo-gt {
-      width: 300px;
+      width: 200px;
+    }
+
+    .signature {
+      width: 160px;
+    }
+
+    .text-sm {
+      font-size: 12px;
+    }
+
+    .text-md {
+      font-size: 16px;
+    }
+
+    .text-lg {
+      font-size: 24px;
+    }
+
+    .spacer {
+      margin: 24px;
+    }
+
+    footer {
+      padding: 64px 24px;
     }
   }
 `;
@@ -87,31 +126,32 @@ export const CertificateTemplate: FunctionComponent<TemplateProps<GovtechOpencer
   <Page certificateBg={`url('${certificateBg}')`} className="p-4">
     <PrintWatermark />
     <main className="text-center">
-      <div className="m-4 m-lg-5">
-        <img src={mainLogo} alt="OpenCerts Logo" className="logo-oc" />
+      <div className="spacer">
+        <img src={mainLogo} className="img-fluid logo-oc" alt="OpenCerts Logo" />
       </div>
-      <div className="m-4 m-lg-5 text-md">
+      <div className="spacer text-md">
         <i>This is to certify that</i>
       </div>
-      <div className="m-4 m-lg-5 text-lg">
+      <div className="spacer text-lg">
         <b>{document.recipient.name}</b>
       </div>
-      <div className="m-4 m-lg-5 text-md">
+      <div className="spacer text-md">
         <i>has successfully completed the</i>
       </div>
-      <div className="m-4 m-lg-5 text-lg">OpenCerts Demo</div>
-      <div className="m-4 m-lg-5 text-md">
+      <div className="spacer text-lg">OpenCerts Demo</div>
+      <div className="spacer text-md">
         <i>certification through training administered by</i>
       </div>
-      <img className="logo-gt" src={logo} alt="Govtech Logo" />
+      <img className="img-fluid logo-gt" src={logo} alt="Govtech Logo" />
     </main>
     <footer>
       <div className="row align-items-center">
         <div className="col">
           <div className="text-center text-sm">
             <img
-              style={{ width: "100%", height: "auto" }}
+              className="img-fluid signature"
               src={get(document, "additionalData.certSignatories[0].signature")}
+              alt="Signature"
             />
             <hr style={{ backgroundColor: "#333" }} />
             <div>

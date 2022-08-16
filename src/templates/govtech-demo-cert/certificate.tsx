@@ -125,7 +125,7 @@ export const CertificateTemplate: FunctionComponent<TemplateProps<GovtechOpencer
 }) => (
   <Page certificateBg={`url('${certificateBg}')`} className="p-4">
     <PrintWatermark />
-    <main className="text-center">
+    <section className="text-center">
       <div className="spacer">
         <img src={mainLogo} className="img-fluid logo-oc" alt="OpenCerts Logo" />
       </div>
@@ -143,8 +143,8 @@ export const CertificateTemplate: FunctionComponent<TemplateProps<GovtechOpencer
         <i>certification through training administered by</i>
       </div>
       <img className="img-fluid logo-gt" src={logo} alt="Govtech Logo" />
-    </main>
-    <footer>
+    </section>
+    <section>
       <div className="row align-items-center">
         <div className="col">
           <div className="text-center text-sm">
@@ -167,6 +167,6 @@ export const CertificateTemplate: FunctionComponent<TemplateProps<GovtechOpencer
           <div className="text-sm text-right">Dated {format(document.issuedOn, "DD/MM/YYYY")}</div>
         </div>
       </div>
-    </footer>
+    </section>
   </Page>
 );

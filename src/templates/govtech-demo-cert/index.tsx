@@ -1,5 +1,6 @@
 import { CertificateTemplate } from "./certificate";
 import { TranscriptTemplate } from "./transcript";
+import { PrintTemplate } from "./print";
 import { MediaTemplate } from "./media";
 
 export const templates = [
@@ -17,5 +18,10 @@ export const templates = [
     id: "media",
     label: "Media",
     template: MediaTemplate
+  },
+  {
+    id: "print",
+    label: "Print",
+    template: PrintTemplate
   }
 ];

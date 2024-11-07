@@ -8,10 +8,10 @@ import { TemplateProps } from "@govtechsg/decentralized-renderer-react-component
 import { GovtechOpencertsTemplateCertificate } from "../samples";
 import { PrintWatermark } from "./common/print-watermark";
 import mainLogo from "./common/hocvien_stem.png";
-import logo from "./common/pythaverse.png";
+import logo from "./common/logo_pythaverse.svg";
 import certificateBg from "./common/certificate-background.png";
 
-const Page = styled("div")<{ certificateBg: string }>`
+const Page = styled("div") <{ certificateBg: string }>`
   max-width: 297mm;
   margin: 0 auto;
 
@@ -141,7 +141,7 @@ export const CertificateTemplate: FunctionComponent<TemplateProps<GovtechOpencer
         <div className="spacer text-md">
           <i>has successfully completed the</i>
         </div>
-        <div className="spacer text-lg">OpenCerts Demo</div>
+        <div className="spacer text-lg">{get(document, "additionalData.certSignatories[0].name")}</div>
         <div className="spacer text-md">
           <i>certification through training administered by</i>
         </div>
@@ -161,7 +161,7 @@ export const CertificateTemplate: FunctionComponent<TemplateProps<GovtechOpencer
                 <b>{get(document, "additionalData.certSignatories[0].name")}</b>
                 <br />
                 {get(document, "additionalData.certSignatories[0].position")},{" "}
-                {get(document, "additionalData.certSignatories[0].organisation")}
+                {get(document, "additionalData.certSignatories[0].organisation")} xxxx
               </div>
             </div>
           </div>

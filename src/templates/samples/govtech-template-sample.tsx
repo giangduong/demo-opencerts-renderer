@@ -1,6 +1,7 @@
 import { Document } from "@govtechsg/decentralized-renderer-react-components";
 
 export interface GovtechOpencertsTemplateCertificate extends Document {
+  id: string;
   name: string;
   description: string;
   issuedOn: string;

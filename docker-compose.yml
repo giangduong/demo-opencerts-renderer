@@ -23,9 +23,6 @@ services:
       target: prod
     ports:
       - "3010:80"
-    volumes:
-      - .:/app
-      - nvl:/app/node_modules
     environment:
       - NODE_ENV=production
       - NODE_OPTIONS=--openssl-legacy-provider

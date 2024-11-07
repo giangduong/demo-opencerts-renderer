@@ -5,15 +5,31 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      target: dev
     ports:
       - "3010:3000"
     volumes:
       - .:/app
-      - /app/node_modules
+      - nvl:/app/node_modules
     environment:
       - NODE_ENV=development
       - NODE_OPTIONS=--openssl-legacy-provider
     command: npm run dev
+
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: prod
+    ports:
+      - "3010:80"
+    volumes:
+      - .:/app
+      - nvl:/app/node_modules
+    environment:
+      - NODE_ENV=production
+      - NODE_OPTIONS=--openssl-legacy-provider
+    
 
   storybook:
     build:
@@ -28,3 +44,6 @@ services:
       - NODE_ENV=development
       - NODE_OPTIONS=--openssl-legacy-provider
     command: npm run storybook 
+
+volumes:
+  nvl:

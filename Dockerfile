@@ -1,5 +1,5 @@
 # Use an official base image
-FROM node:18-alpine
+FROM node:18-alpine AS dev
 
 # Install curl
 RUN apk add --no-cache curl
@@ -21,3 +21,11 @@ EXPOSE 3000
 
 # Start the application
 CMD ["npm", "start"] 
+
+FROM dev AS build
+COPY . .
+RUN npm run build
+
+FROM nginx:alpine AS prod
+COPY --from=build /app/dist ./usr/share/nginx/html
+CMD ["nginx", "-g", "daemon off;"] 

@@ -14,11 +14,11 @@ export const templates = [
     label: "Transcript",
     template: TranscriptTemplate
   },
-  {
-    id: "media",
-    label: "Media",
-    template: MediaTemplate
-  },
+  // {
+  //   id: "media",
+  //   label: "Media",
+  //   template: MediaTemplate
+  // },
   {
     id: "print",
     label: "Print",

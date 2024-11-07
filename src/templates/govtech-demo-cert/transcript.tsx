@@ -27,6 +27,8 @@ export const TranscriptTemplate: FunctionComponent<TemplateProps<GovtechOpencert
   const studentId = get(document, "additionalData.studentId");
 
   const transcriptData = document.transcript || [];
+  
+  console.log(transcriptData);
 
   const transcriptSection = transcriptData.map((t, i) => (
     <tr key={i}>

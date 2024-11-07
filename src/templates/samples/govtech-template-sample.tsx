@@ -40,9 +40,9 @@ export const customTemplateCertificate: GovtechOpencertsTemplateCertificate = {
   admissionDate: "2017-08-01T00:00:00+08:00",
   graduationDate: "2022-08-01T00:00:00+08:00",
   recipient: {
-    name: "Your Name",
+    name: "Giang Duong",
     nric: "SXXXXXXXY",
-    course: "Govtech Demo"
+    course: "Leanbot Demo"
   },
   transcript: [
     {

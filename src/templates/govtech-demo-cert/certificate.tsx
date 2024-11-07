@@ -7,11 +7,11 @@ import "./common/demo-styles.css";
 import { TemplateProps } from "@govtechsg/decentralized-renderer-react-components";
 import { GovtechOpencertsTemplateCertificate } from "../samples";
 import { PrintWatermark } from "./common/print-watermark";
-import mainLogo from "./common/opencerts-logo.svg";
+import mainLogo from "./common/hocvien_stem.png";
 import logo from "./common/pythaverse.png";
 import certificateBg from "./common/certificate-background.png";
 
-const Page = styled("div") <{ certificateBg: string }>`
+const Page = styled("div")<{ certificateBg: string }>`
   max-width: 297mm;
   margin: 0 auto;
 

@@ -9,10 +9,12 @@ import { GovtechOpencertsTemplateCertificate } from "../samples";
 import { PrintWatermark } from "./common/print-watermark";
 import mainLogo from "./common/hocvien_stem.png";
 import logo from "./common/logo_pythaverse.svg";
-import certificateBg from "./common/certificate-background.png";
+import certificateBg from "./common/certificate-background2.png";
 
 const Page = styled("div") <{ certificateBg: string }>`
-  max-width: 297mm;
+  max-width: 1280px;
+  min-width: 1280px;
+  height: 908px;
   margin: 0 auto;
 
   position: relative;
@@ -118,6 +120,12 @@ const Page = styled("div") <{ certificateBg: string }>`
       padding: 64px 24px;
     }
   }
+    .docname {
+      margin-top: 310px;
+    }
+    .uname {
+      margin-top: 90px;
+    }
 `;
 
 export const CertificateTemplate: FunctionComponent<TemplateProps<GovtechOpencertsTemplateCertificate>> = ({
@@ -129,28 +137,29 @@ export const CertificateTemplate: FunctionComponent<TemplateProps<GovtechOpencer
     <Page certificateBg={`url('${certificateBg}')`} className="p-4">
       <PrintWatermark />
       <section className="text-center">
-        <div className="spacer">
+        {/*<div className="spacer">
           <img src={mainLogo} className="img-fluid logo-oc" alt="OpenCerts Logo" />
         </div>
         <div className="spacer text-md">
           <i>This is to certify that xxxxxxxxxx</i>
-        </div>
-        <div className="spacer text-lg">
+        </div>*/}
+        
+        <div className="spacer text-lg docname">
           <b>{document.recipient.name}</b>
         </div>
-        <div className="spacer text-md">
+        {/* <div className="spacer text-md">
           <i>has successfully completed the</i>
-        </div>
-        <div className="spacer text-lg">{get(document, "additionalData.certSignatories[0].name")}</div>
+        </div> */}
+        <div className="spacer text-lg uname">{get(document, "additionalData.certSignatories[0].name")}</div>
         <div className="spacer text-md">
           <i>certification through training administered by</i>
         </div>
-        <img className="img-fluid logo-gt" src={logo} alt="Govtech Logo" />
+        {/* <img className="img-fluid logo-gt" src={logo} alt="Govtech Logo" /> */}
       </section>
       <section>
         <div className="row align-items-center">
           <div className="col">
-            <div className="text-center text-sm">
+            {/* <div className="text-center text-sm">
               <img
                 className="img-fluid signature"
                 src={get(document, "additionalData.certSignatories[0].signature")}
@@ -163,7 +172,7 @@ export const CertificateTemplate: FunctionComponent<TemplateProps<GovtechOpencer
                 {get(document, "additionalData.certSignatories[0].position")},{" "}
                 {get(document, "additionalData.certSignatories[0].organisation")} xxxx
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="col" />
           <div className="col">
